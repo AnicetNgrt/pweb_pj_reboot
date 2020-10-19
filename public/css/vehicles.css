@@ -1,0 +1,68 @@
+.card-vehicle {
+    transition: 0.2s;
+    background-color: #292929c4;
+    margin-top: 1rem;
+}
+
+.card-vehicle h2 {
+    color: #85b6b6;
+}
+
+.card-vehicle p {
+    color: white;
+}
+
+.card-vehicle:hover {
+    transition: 0.1s;
+    background-color: #292929;
+    color: white;
+}
+
+/*.card-vehicle-title {
+    text-align: center;
+}*/
+
+.card-vehicle-tag {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    border-radius: 0.25rem;
+    width: min-content;
+    user-select: none;
+}
+
+.card-vehicle-tag.positive {
+    background-color: rgb(95, 255, 63);
+    color: black;
+}
+
+.card-vehicle-tag.negative {
+    background-color: rgb(255, 56, 56);
+    color: white;
+}
+
+.vehicle-show-edit-button {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    border-radius: 0.25rem;
+    user-select: none;
+    text-align: center;
+    border: solid 2px black;
+    transition: 0.2s;
+}
+
+.vehicle-show-edit-button:hover {
+    color: white;
+    background-color: black;
+}
+
+.vehicle-show-edit-button.dangerous {
+    border: solid 2px rgb(255, 56, 56);
+    color: rgb(255, 56, 56);
+}
+
+.vehicle-show-edit-button.dangerous:hover {
+    color: white;
+    background-color: rgb(255, 56, 56);
+}

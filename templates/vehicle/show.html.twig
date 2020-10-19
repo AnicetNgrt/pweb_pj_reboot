@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{vehicle.type}}{% endblock %}
+
+{% block body %}
+    <h1 class="row justify-content-center">{{vehicle.type}}</h1>
+    <div class="row justify-content-center">
+        <a class="vehicle-show-edit-button col-md-1 col-2" href="{{ path('app_vehicles_edit', {id: vehicle.id}) }}">Edit</a>
+        <a 
+            href="#" 
+            onclick="
+                event.preventDefault();
+                confirm('Are you sure you want to delete that ?') &&
+                document.getElementById('js-pin-delete-form').submit();
+            " 
+            class="vehicle-show-edit-button dangerous col-md-1 col-2"
+        >
+            Delete
+        </a>
+    
+        <form id="js-pin-delete-form" action="{{path('app_vehicles_delete', {id: vehicle.id})}}" method="post" style="display: none;">
+            <input type="hidden" name="csrf_token" value="{{csrf_token('vehicles.delete' ~ vehicle.id)}}"></input>
+            <input type="hidden" name="_method" value="DELETE"></input>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All vehicles{% endblock %}
+
+{% block body %}
+    <h1 class="row justify-content-center">All vehicles</h1>
+    <div class="row mb-3 justify-content-center">
+        {% for vehicle in vehicles %}
+            <article class="card-vehicle col-lg-3 col-md-3 col-sm-5 col-12">
+                <a href="{{path('app_vehicles_show', {id: vehicle.id})}}">
+                    <h2 class="card-vehicle-title">{{vehicle.type}}</h2>
+                    <p class="card-vehicle-info">stock: {{vehicle.stock}}</p>
+                    <p class="card-vehicle-tag {{
+                        vehicle.locationStatus == "available" ? 'positive' : 'negative'
+                    }}">
+                        {{vehicle.locationStatus == "available" ? 'available' : 'unavailable'}}
+                    </p>
+                </a>
+            </article>
+        {% endfor %}
+    </div>
+
+{% endblock %}

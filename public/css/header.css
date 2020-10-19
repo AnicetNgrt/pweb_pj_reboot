@@ -1,0 +1,38 @@
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #292929;
+    padding-left: 6vw;
+    padding-right: 6vw;
+    /*box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.589);*/
+}
+
+.header-element:not(:last-child) {
+    margin-right: 1rem;
+}
+
+header h1 {
+    color: #85b6b6;
+    font-size: 2rem;
+    display: inline;
+}
+
+header p {
+    color: #85b6b6;
+    display: inline;
+}
+
+.header-menu {
+    padding-left: 1rem;
+    vertical-align: bottom;
+}
+
+.header-menu a {
+    color: white;
+    text-decoration: underline;
+}
+
+.header-menu a:not(:last-child) {
+    margin-right: 0.5rem;
+}
