@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class VehicleType extends AbstractType
 {
@@ -17,6 +18,16 @@ class VehicleType extends AbstractType
     {
         $builder
             ->add('type', TextType::class)
+            ->add('imageFile', VichImageType::class, [
+                'required' => false,
+                'allow_delete' => true,
+                'delete_label' => 'Check to delete image',
+                'download_label' => 'Click here to download',
+                'download_uri' => true,
+                'image_uri' => true,
+                /*'imagine_pattern' => '...',*/
+                'label' => 'Image (JPG or PNG file)'
+            ])
             ->add('stock', IntegerType::class)
             ->add('locationStatus', ChoiceType::class, [
                 'choices'  => [
