@@ -111,3 +111,15 @@
 .article-vehicle .card-vehicle-tag, .article-vehicle .card-vehicle-picture {
     opacity: 1;
 }
+
+.article-vehicle .table-dark {
+    background-color: #161616;
+}
+
+.article-vehicle .table-responsive {
+    border-radius: 0.25rem;  
+}
+
+.article-vehicle .table {
+    border-radius: 0.25rem;  
+}

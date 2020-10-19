@@ -34,8 +34,15 @@ class VehicleController extends AbstractController
      * @Route("/vehicles/{id<[0-9]+>}", name="app_vehicles_show", methods="GET")
      */
     public function show(Vehicle $vehicle): Response
-    {
-      return $this->render('vehicle/show.html.twig', compact('vehicle'));
+    {  
+        $characs = (array) json_decode($vehicle->getCharacsJSON());
+        $characsNames = array_keys($characs);
+        $characsValues = array_values($characs);
+        return $this->render('vehicle/show.html.twig', [
+            'vehicle' => $vehicle,
+            'characsNames' => $characsNames,
+            'characsValues' => $characsValues
+        ]);
     }
 
     /**
