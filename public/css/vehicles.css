@@ -2,6 +2,7 @@
     transition: 0.2s;
     background-color: #292929c4;
     margin-top: 1rem;
+    /*height: max-content;*/
 }
 
 .card-vehicle h2 {
@@ -12,13 +13,21 @@
     color: white;
 }
 
+.card-footer p {
+    display: inline;
+}
+
+.card-vehicle-picture {
+    width: 100%;
+}
+
 .card-vehicle:hover {
     transition: 0.1s;
     background-color: #292929;
     color: white;
 }
 
-.card-vehicle:hover .card-vehicle-tag {
+.card-vehicle:hover .card-vehicle-tag, .card-vehicle:hover .card-vehicle-picture {
     opacity: 1;
 }
 
@@ -30,7 +39,9 @@
     text-align: center;
 }*/
 
+
 .card-vehicle-tag {
+    display: inline;
     padding-left: 0.25rem;
     padding-right: 0.25rem;
     border-radius: 0.25rem;
@@ -75,4 +86,28 @@
 .vehicle-show-edit-button.dangerous:hover {
     background-color: rgb(255, 56, 56);
     color: white;
+}
+
+.vehicle-show-img {
+    margin-top: 1rem;
+    min-width: 100%;
+}
+
+.article-vehicle {
+    transition: 0.2s;
+    background-color: #292929;
+    margin-top: 1rem;
+    /*height: max-content;*/
+}
+
+.article-vehicle h2 {
+    color: white;
+}
+
+.article-vehicle p {
+    color: white;
+}
+
+.article-vehicle .card-vehicle-tag, .article-vehicle .card-vehicle-picture {
+    opacity: 1;
 }

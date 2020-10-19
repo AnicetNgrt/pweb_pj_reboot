@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\VehicleRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
@@ -53,6 +54,7 @@ class Vehicle
 
     /**
      * @Vich\UploadableField(mapping="vehicle_image", fileNameProperty="imageName")
+     * @Assert\Image(maxSize="18M")
      */
 
     private $imageFile;
@@ -66,7 +68,10 @@ class Vehicle
      * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
      */
     private $updatedAt;
-    
+
+    public function __construct(){
+        $this->setUpdatedAt(new \DateTime());
+    }
 
     public function getId(): ?int
     {

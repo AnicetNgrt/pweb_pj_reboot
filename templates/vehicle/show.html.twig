@@ -23,4 +23,22 @@
             <input type="hidden" name="_method" value="DELETE"></input>
         </form>
     </div>
+    <div class="row justify-content-center">
+        <article class="article-vehicle col-10 col-sm-6">
+            <div class="card-header">
+                <p class="card-vehicle-tag card-text {{
+                    vehicle.stock > 0 ? 'positive' : 'negative'
+                }}">stock: {{vehicle.stock}}</p>
+                <p class="card-vehicle-tag card-text {{
+                    vehicle.locationStatus == "available" ? 'positive' : 'negative'
+                }}">
+                    {{vehicle.locationStatus == "available" ? 'available' : 'unavailable'}}
+                </p>
+            </div>
+            <div class="card-block">
+                <p></p>
+            </div>
+            <img class="card-img-bottom vehicle-show-img" src="{{ vich_uploader_asset(vehicle)}}" alt="{{vehicle.type}}"/>
+        </article>
+    </div>
 {% endblock %}
