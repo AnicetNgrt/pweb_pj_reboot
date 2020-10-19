@@ -5,10 +5,13 @@ namespace App\Entity;
 use App\Repository\VehicleRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=VehicleRepository::class)
  * @ORM\Table(name="vehicles")
+ * @Vich\Uploadable
  */
 class Vehicle
 {
@@ -40,13 +43,30 @@ class Vehicle
      *     message = "You've entered an invalid Json."
      * )
      */
-    private $characsJSON;
+    private $characsJSON = "{}";
 
     /**
      * @ORM\Column(type="string", length=32)
      * @Assert\NotBlank
      */
     private $locationStatus;
+
+    /**
+     * @Vich\UploadableField(mapping="vehicle_image", fileNameProperty="imageName")
+     */
+
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageName;
+
+    /**
+     * @ORM\Column(type="datetime", options={"default": "CURRENT_TIMESTAMP"})
+     */
+    private $updatedAt;
+    
 
     public function getId(): ?int
     {
@@ -104,5 +124,43 @@ class Vehicle
     public function isAvailable(): bool
     {
         return $this->getLocationStatus() == "disponible";
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function setImageName(?string $imageName): self
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(?File $imageFile = null): void 
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->setUpdatedAt(new \DateTimeImmutable);
+        }
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
     }
 }

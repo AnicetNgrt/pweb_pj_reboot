@@ -18,6 +18,14 @@
     color: white;
 }
 
+.card-vehicle:hover .card-vehicle-tag {
+    opacity: 1;
+}
+
+.card-vehicle:hover h2 {
+    color: white;
+}
+
 /*.card-vehicle-title {
     text-align: center;
 }*/
@@ -27,7 +35,9 @@
     padding-right: 0.25rem;
     border-radius: 0.25rem;
     width: min-content;
+    font-size: 0.8rem;
     user-select: none;
+    opacity: 0.5;
 }
 
 .card-vehicle-tag.positive {
@@ -48,21 +58,21 @@
     border-radius: 0.25rem;
     user-select: none;
     text-align: center;
-    border: solid 2px black;
+    background-color: #292929c4;
+    color: white;
     transition: 0.2s;
 }
 
 .vehicle-show-edit-button:hover {
+    background-color: #292929;
     color: white;
-    background-color: black;
 }
 
 .vehicle-show-edit-button.dangerous {
-    border: solid 2px rgb(255, 56, 56);
-    color: rgb(255, 56, 56);
+    background-color: rgba(255, 56, 56, 0.747);
 }
 
 .vehicle-show-edit-button.dangerous:hover {
-    color: white;
     background-color: rgb(255, 56, 56);
+    color: white;
 }

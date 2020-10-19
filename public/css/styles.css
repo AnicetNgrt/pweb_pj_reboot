@@ -79,6 +79,18 @@ form li {
     border-radius: 0.25rem;
 }
 
+form .text-edit-json {
+    font-family: 'Roboto Mono', monospace;
+    border: none;
+    padding-left: 1rem;
+    padding-top: 0.25rem;
+    background-color: black;
+    color:white;
+    letter-spacing: 1px;
+    width:400px;
+    height: 300px;
+}
+
 .alert {
     text-align: center;
     margin: 0px;
