@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Form\VehicleType;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Security;
 
 class VehicleController extends AbstractController
 {
@@ -74,7 +75,7 @@ class VehicleController extends AbstractController
     /**
      * @Route("/vehicles/create", name="app_vehicles_create", methods="GET|POST")
      */
-    public function create(Request $request): Response
+    public function create(Security $security, Request $request): Response
     {
         $vehicle = new Vehicle;
         $form = $this->createForm(VehicleType::class, $vehicle);
@@ -82,6 +83,7 @@ class VehicleController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
+            $vehicle->setUser($security->getUser());
             $this->em->persist($vehicle);
             $this->em->flush();
 

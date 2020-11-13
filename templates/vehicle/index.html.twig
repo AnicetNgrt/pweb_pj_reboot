@@ -11,6 +11,7 @@
                     <a href="{{path('app_vehicles_show', {id: vehicle.id})}}">
                         <img class="card-img-top" src="{{ vich_uploader_asset(vehicle)}}" alt="{{vehicle.type}}"/>
                         <div class="card-block">
+                            <p class="card-text">Leased by {{vehicle.user.nomEntreprise}}</p>
                             <h2 class="card-vehicle-title card-title">{{vehicle.type}}</h2>
                         </div>
                         <div class="card-footer">

@@ -20,9 +20,13 @@
             </a>
             <menu class="header-menu header-element">
                 <a href="{{ path('app_home') }}">Browse</a>
-                <a href="{{ path('app_vehicles_create') }}">New vehicle</a>
-                <a href="{{ path('app_vehicles_create') }}">Login</a>
-                <a href="{{ path('app_vehicles_create') }}">Register</a>
+                {% if app.user %}
+                    <a href="{{ path('app_vehicles_create') }}">New vehicle</a>
+                    <a href="{{ path('app_logout') }}">Logout</a>
+                {% else %}
+                    <a href="{{ path('app_login') }}">Login</a>
+                    <a href="{{ path('app_register') }}">Register</a>
+                {% endif %}
             </menu>
         </header>
         {% for type, messages in app.flashes %}
