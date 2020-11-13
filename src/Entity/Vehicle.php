@@ -69,6 +69,12 @@ class Vehicle
      */
     private $updatedAt;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="vehicles")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
     public function __construct(){
         $this->setUpdatedAt(new \DateTime());
     }
@@ -165,6 +171,18 @@ class Vehicle
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
